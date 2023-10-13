@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import React from "react";
-import  useForm  from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import LoginPage from "./Login";
 import RegisterPage from "./Register";
@@ -9,7 +8,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { AppErrors } from "../../common/errors";
 import { loginUser, registerUser } from "../../store/slice/auth";
-import './auth.scss'
+import "./auth.scss";
+import { IPropsLogin } from "../../common/types/auth";
+import { LoginSchema } from "../../utils/yup";
 
 const AuthPage = () => {
   const location = useLocation();
@@ -19,15 +20,11 @@ const AuthPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    // resolver: yupResolver(
-    //   location.pathname === "/login" ? LoginSchema : RegisterSchema
-    // ),
-    // mode: 'onChange'
+  } = useForm<IPropsLogin>({
+    resolver: yupResolver(LoginSchema),
   });
-  const loading = useAppSelector(state => state.auth.isLoading)
+  const loading = useAppSelector((state) => state.auth.isLoading);
 
-  
   const handleSubmitForm = async (data: any) => {
     if (location.pathname === "/login") {
       try {
@@ -37,14 +34,13 @@ const AuthPage = () => {
         return e;
       }
     } else {
-        try {
-          await dispatch(registerUser(data));
-          navigate("/");
-        } catch (e) {
-          console.log(e);
-          return e;
-        }
-      
+      try {
+        await dispatch(registerUser(data));
+        navigate("/");
+      } catch (e) {
+        console.log(e);
+        return e;
+      }
     }
   };
   return (
@@ -64,7 +60,11 @@ const AuthPage = () => {
           {location.pathname === "/login" ? (
             <LoginPage register={register} errors={errors} loading={loading} />
           ) : location.pathname === "/register" ? (
-            <RegisterPage register={register} errors={errors} loading={loading} />
+            <RegisterPage
+              register={register}
+              errors={errors}
+              loading={loading}
+            />
           ) : null}
         </Box>
       </form>

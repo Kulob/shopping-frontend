@@ -8,7 +8,6 @@ export const LoginSchema = yup.object().shape({
     password: yup.string()
         .min(8, AppErrors.minLength)
         .required(AppErrors.RequiredField)
-        .matches(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{6,20}$/, AppErrors.InvalidPassword),
 })
 
 export const RegisterSchema = yup.object().shape({
@@ -17,7 +16,6 @@ export const RegisterSchema = yup.object().shape({
         .required(AppErrors.RequiredField),
     password: yup.string()
         .min(8, AppErrors.minLength)
-        .required(AppErrors.RequiredField)
-        .matches(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!@#$%&?]{6,20}$/, AppErrors.InvalidPassword),
+        .required(AppErrors.RequiredField),
     username: yup.string().required(AppErrors.RequiredField)
 })
