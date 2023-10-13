@@ -1,4 +1,6 @@
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import {  FieldValues } from "react-hook-form/dist/types/fields";
+import {  UseFormRegister } from "react-hook-form/dist/types/form";
+import { FieldErrors } from "react-hook-form/dist/types/errors";
 
 export interface IPropsLogin<
   TFieldValues extends FieldValues = FieldValues,

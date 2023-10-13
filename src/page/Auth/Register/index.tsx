@@ -3,10 +3,6 @@ import { Button, TextField, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { IPropsRegister, IRegisterData } from "../../../common/types/auth";
 import AppLoadingButton from "../../../components/Loading-button";
-import { useAppDispatch } from "../../../utils/hooks";
-import { registerUser } from "../../../store/slice/auth";
-import { useForm } from "react-hook-form";
-
 const RegisterPage: FC<IPropsRegister> = (
   props: IPropsRegister
 ): JSX.Element => {

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { useForm } from "react-hook-form";
+import  useForm  from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import LoginPage from "./Login";
 import RegisterPage from "./Register";
@@ -23,7 +23,7 @@ const AuthPage = () => {
     // resolver: yupResolver(
     //   location.pathname === "/login" ? LoginSchema : RegisterSchema
     // ),
-    mode: 'onChange'
+    // mode: 'onChange'
   });
   const loading = useAppSelector(state => state.auth.isLoading)
 
