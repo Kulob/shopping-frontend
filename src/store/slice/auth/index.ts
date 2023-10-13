@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (data: ILoginData, { rejectWithValue }) => {
     try {
-      const user = await axios.post('http://localhost:5002/auth/login',data)
+      const user = await axios.post('https://shopping-api-beta.vercel.app/auth/login',data)
       if(user.data.token) {
         window.localStorage.setItem('token', user.data.token)
       }
@@ -39,7 +39,7 @@ export const registerUser = createAsyncThunk(
     "auth/register",
     async (data: IRegisterData, { rejectWithValue }) => {
       try {
-        const register = await axios.post('http://localhost:5002/auth/register',data)
+        const register = await axios.post('https://shopping-api-beta.vercel.app/auth/register',data)
         console.log(register.data);
         if(register.data.token) {
           window.localStorage.setItem('token', register.data.token)
