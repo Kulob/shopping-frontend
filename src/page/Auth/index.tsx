@@ -20,8 +20,8 @@ const AuthPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IPropsLogin>({
-    resolver: yupResolver(LoginSchema),
+  } = useForm({
+    // resolver: yupResolver(LoginSchema),
   });
   const loading = useAppSelector((state) => state.auth.isLoading);
 

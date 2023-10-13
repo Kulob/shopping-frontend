@@ -28,7 +28,9 @@ const LoginPage: React.FC<IPropsLogin> = ({
         variant="outlined"
         placeholder="Введите ваш email"
         helperText={errors.email ? `${errors.email.message}` : ""}
-        {...register("email")}
+        {...register("email", {
+          required: "Введите корректный email"
+        })}
       />
       <TextField
         error={!!errors.password}
@@ -39,7 +41,9 @@ const LoginPage: React.FC<IPropsLogin> = ({
         variant="outlined"
         placeholder="Введите ваш пароль"
         helperText={errors.password ? `${errors.password.message}` : ""}
-        {...register("password")}
+        {...register("password",{
+          required:'Минимальная длина 8 символов'
+        })}
       />
       <AppLoadingButton loading={loading} type="submit" variant="contained" sx={{ width: "60%" }}>
         Войти
