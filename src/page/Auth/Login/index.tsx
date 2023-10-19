@@ -17,7 +17,7 @@ const LoginPage: React.FC<IPropsLogin> = ({
         Авторизация
       </Typography>
       <Typography variant="body1" textAlign={"center"}>
-        Введите ваш логин и пароль
+        Введите ваш имя и пароль
       </Typography>
       <TextField
         error={!!errors.username}
