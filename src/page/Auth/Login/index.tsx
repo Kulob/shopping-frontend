@@ -20,16 +20,16 @@ const LoginPage: React.FC<IPropsLogin> = ({
         Введите ваш логин и пароль
       </Typography>
       <TextField
-        error={!!errors.email}
-        type="email"
+        error={!!errors.username}
+        type="username"
         fullWidth={true}
         margin="normal"
-        label="Email"
+        label="Username"
         variant="outlined"
-        placeholder="Введите ваш email"
-        helperText={errors.email ? `${errors.email.message}` : ""}
-        {...register("email", {
-          required: "Введите корректный email"
+        placeholder="Введите ваш username"
+        helperText={errors.username ? `${errors.username.message}` : ""}
+        {...register("username", {
+          required: "Введите корректный username"
         })}
       />
       <TextField
